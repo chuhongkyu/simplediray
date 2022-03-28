@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 
 const DiaryEditor = () =>{
+
+    const authorInput = useRef();
+    const contentInput = useRef();
 
     const [state, setState] = useState({
         author: "",
@@ -20,51 +23,64 @@ const DiaryEditor = () =>{
     }
 
     const handleSubmit = ()=>{
-        console.log(state);
+        if(state.author.length < 1){
+           authorInput.current.focus();
+            return;
+        }
+
+        if(state.content.length < 5){
+            contentInput.current.focus();
+            return;
+        }
         alert('저장 성공');
-    }
+    };
 
-    const [efeel, setFeel] = useState("😀");
-
-    const handleFeel = ()=>{
-
-        setFeel()
-
-    }
+    const efeel = ["😀","😂","🤣","😃","😅","😊"]
+    const pickFell = efeel[Math.floor(Math.random() * efeel.length)];
 
 
     return (
         <div className="DiaryEditor">
-        <h2>오늘의 일기 <span onChange={handleFeel}>{efeel}</span></h2>
+        <h2>오늘의 일기 <span>{pickFell}</span></h2>
+        <div className="text_box">
         <div>
-            <input 
+            <input
+            ref={authorInput} 
             name="author"
             value={state.author}
             onChange={ handleChangeState}
+            placeholder="작성자"
             />
         </div>
         <div>
             <textarea
+            ref={contentInput}
             name="content"
             value={state.content} 
             onChange={handleChangeState}
+            placeholder="5글자이상 입려하세요."
             />
         </div>
+        <div className="submit_box">
         <div>
             <select 
             name="emotion" 
             value={state.author}
             onChange={ handleChangeState}>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
+            <option value={1}>😍</option>
+            <option value={2}>😋</option>
+            <option value={3}>😃</option>
+            <option value={4}>😑</option>
+            <option value={5}>🤬</option>
             </select>
         </div>
         <div>
             <button onClick={handleSubmit}>일기 저장하기</button>
         </div>
+        </div>
+
+        </div>
+        
         
     </div>
     
