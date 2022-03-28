@@ -6,6 +6,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  margin: 0;
 }
 
 .text_box {
@@ -43,4 +45,49 @@
 
 .submit_box {
   display: flex;
+}
+
+/*list*/
+
+.DiaryList {
+  border: 1px solid gray;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+}
+
+.Diarylist h2 {
+  text-align: center;
+}
+
+.Item_box {
+  width: 100%;
+  margin: 0;
+}
+
+.DiaryItem {
+  background-color: rgb(212, 207, 199);
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.DiaryItem .info {
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.DiaryItem .date {
+  color: gray;
+}
+
+.DiaryItem .content {
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
