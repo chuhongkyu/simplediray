@@ -67,7 +67,7 @@ const DiaryEditor = () =>{
             name="emotion" 
             value={state.author}
             onChange={ handleChangeState}>
-            <option value={1}>😍</option>
+            오늘의 감정 : <option value={1}>😍</option>
             <option value={2}>😋</option>
             <option value={3}>😃</option>
             <option value={4}>😑</option>
