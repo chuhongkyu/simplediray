@@ -24,10 +24,18 @@ const DiaryEditor = () =>{
         alert('저장 성공');
     }
 
+    const [efeel, setFeel] = useState("😀");
+
+    const handleFeel = ()=>{
+
+        setFeel()
+
+    }
+
 
     return (
         <div className="DiaryEditor">
-        <h2>오늘의 일기</h2>
+        <h2>오늘의 일기 <span onChange={handleFeel}>{efeel}</span></h2>
         <div>
             <input 
             name="author"
