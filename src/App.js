@@ -48,7 +48,7 @@ function App() {
       content,
       emotion,
       created_date,
-      id : dataId.content
+      id : dataId.current,
 
     }
     dataId.current += 1;
@@ -56,11 +56,18 @@ function App() {
 
   }
 
+  const onDelete = (tragetId) =>{
+    console.log(`${tragetId}가 삭제 되었습니다`);
+    const newDiaryList = data.filter((it)=> it.id !== tragetId);
+    console.log(newDiaryList);
+    setData(newDiaryList);
+  };
+
 
   return (
     <div className="App">
       <DiaryEditor onCreate={onCreate}/>
-      <DiaryList diaryList={data} />
+      <DiaryList onDelete={onDelete} diaryList={data} />
     </div>
   );
 }

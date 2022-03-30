@@ -32,6 +32,7 @@ const DiaryEditor = ({onCreate}) =>{
             contentInput.current.focus();
             return;
         }
+        
         onCreate(state.author, state.content, state.emotion);
         alert('저장 성공');
         setState({
