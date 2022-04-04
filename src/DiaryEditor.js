@@ -1,4 +1,10 @@
 import { useRef, useState } from "react";
+import styled from "styled-components";
+
+const Title = styled.h1`
+color: black;
+font-size: 35px;
+`;
 
 
 const DiaryEditor = ({onCreate}) =>{
@@ -48,7 +54,8 @@ const DiaryEditor = ({onCreate}) =>{
 
     return (
         <div className="DiaryEditor">
-        <h2>오늘의 일기 <span>{pickFell}</span></h2>
+        <Title as={"h2"}>오늘의 일기<span>{pickFell}</span></Title>
+        {/* <h2>오늘의 일기 <span>{pickFell}</span></h2> */}
         <div className="text_box">
         <div>
             <input

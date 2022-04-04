@@ -2,38 +2,7 @@ import {useRef, useState } from 'react';
 import './App.css';
 import DiaryEditor from './DiaryEditor';
 import DiaryList from './DiaryList';
-
-// const dummyList = [
-//   {
-//     id:1,
-//     author:"이정환",
-//     content:"하우 알 유~",
-//     emotion: 5,
-//     created_date: new Date().getTime()
-//   },
-//   {
-//     id:1,
-//     author:"무수환",
-//     content:"하우 알 유~",
-//     emotion: 4,
-//     created_date: new Date().getTime()
-//   },
-//   {
-//     id:2,
-//     author:"추홍규",
-//     content:"하우 알 유~",
-//     emotion: 3,
-//     created_date: new Date().getTime()
-//   },
-//   {
-//     id:3,
-//     author:"김정수",
-//     content:"하우 알 유~",
-//     emotion: 2,
-//     created_date: new Date().getTime()
-//   },
-// ]
-
+import Lifecycle from './Lifecycle';
 
 function App() {
 
@@ -63,11 +32,19 @@ function App() {
     setData(newDiaryList);
   };
 
+  const onEdit = (targetId, newContent) =>{
+    setData(
+      data.map((it)=> it.id === targetId ? {...it, content:newContent}: it)
+    );
+    
+  };
+
 
   return (
     <div className="App">
+      <Lifecycle/>
       <DiaryEditor onCreate={onCreate}/>
-      <DiaryList onRemove={onRemove} diaryList={data} />
+      <DiaryList onEdit={onEdit} onRemove={onRemove} diaryList={data} />
     </div>
   );
 }
