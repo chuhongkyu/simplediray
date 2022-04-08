@@ -8,9 +8,9 @@ font-size: 35px;
 
 
 const DiaryEditor = ({onCreate}) =>{
-    useEffect(()=>{
-        console.log("DiaryEditor 렌더");
-    });
+    // useEffect(()=>{
+    //     console.log("DiaryEditor 렌더");
+    // });
 
     const authorInput = useRef();
     const contentInput = useRef();

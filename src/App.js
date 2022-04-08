@@ -53,19 +53,16 @@ function App() {
   []
   );
 
-  const onRemove = (tragetId) =>{
-    // console.log(`${tragetId}가 삭제 되었습니다`);
-    const newDiaryList = data.filter((it)=> it.id !== tragetId);
-    // console.log(newDiaryList);
-    setData(newDiaryList);
-  };
+  const onRemove = useCallback((tragetId) =>{
+    setData((data) =>data.filter((it)=> it.id !== tragetId));
+  }, []);
 
-  const onEdit = (targetId, newContent) =>{
-    setData(
+  const onEdit = useCallback((targetId, newContent) =>{
+    setData((data)=>
       data.map((it)=> it.id === targetId ? {...it, content:newContent}: it)
     );
     
-  };
+  },[]);
 
   const getDiaryAnalysis = useMemo(
     ()=>{
