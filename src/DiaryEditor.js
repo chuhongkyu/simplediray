@@ -98,7 +98,6 @@ const DiaryEditor = ({onCreate}) =>{
 
         </div>
         
-        
     </div>
     
     );
