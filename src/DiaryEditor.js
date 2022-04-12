@@ -1,5 +1,6 @@
-import React,{useEffect, useRef, useState } from "react";
+import React,{useContext, useRef, useState } from "react";
 import styled from "styled-components";
+import { DiaryDispatchContext } from "./App";
 
 const Title = styled.h1`
 color: black;
@@ -7,11 +8,8 @@ font-size: 35px;
 `;
 
 
-const DiaryEditor = ({onCreate}) =>{
-    // useEffect(()=>{
-    //     console.log("DiaryEditor 렌더");
-    // });
-
+const DiaryEditor = () =>{
+    const {onCreate} = useContext(DiaryDispatchContext);
     const authorInput = useRef();
     const contentInput = useRef();
 
